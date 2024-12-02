@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/bmt-notes/static/css/main.2f41352e.css",
+    "main.js": "/bmt-notes/static/js/main.f446ee7e.js",
+    "static/js/453.a37b5d28.chunk.js": "/bmt-notes/static/js/453.a37b5d28.chunk.js",
+    "static/media/logo.svg": "/bmt-notes/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/bmt-notes/index.html",
+    "main.2f41352e.css.map": "/bmt-notes/static/css/main.2f41352e.css.map",
+    "main.f446ee7e.js.map": "/bmt-notes/static/js/main.f446ee7e.js.map",
+    "453.a37b5d28.chunk.js.map": "/bmt-notes/static/js/453.a37b5d28.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2f41352e.css",
+    "static/js/main.f446ee7e.js"
+  ]
+}
