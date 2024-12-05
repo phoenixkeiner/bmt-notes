@@ -6,8 +6,10 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          BMT Notes is just getting started, collecting data for it now!
+        <p 
+          className='mx-2'
+        >
+          BMT Notes is just getting started, reviewing my notes with my professor before building the site!
         </p>
       </header>
     </div>
