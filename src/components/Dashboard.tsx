@@ -25,8 +25,17 @@ export default function Dashboard({ stance, onStanceChange, onNavigate }: Props)
         <h1 className="text-3xl sm:text-5xl lg:text-7xl font-black tracking-widest text-white uppercase">BMT Notes</h1>
         <p className="text-xs sm:text-sm lg:text-base text-gray-500 mt-2 lg:mt-4 tracking-widest uppercase">Muay Thai Reference</p>
       </div>
-      <div className="flex justify-center mb-10 lg:mb-16">
+      <div className="flex flex-col items-center gap-3 mb-10 lg:mb-16">
         <StanceToggle stance={stance} onChange={onStanceChange} />
+        <p className="text-xs sm:text-sm lg:text-base">
+          <span className="text-strike-left font-medium">Left</span>
+          <span className="text-gray-600 mx-1">=</span>
+          <span className="text-strike-left font-medium">Blue</span>
+          <span className="text-gray-600 mx-3">/</span>
+          <span className="text-strike-right font-medium">Right</span>
+          <span className="text-gray-600 mx-1">=</span>
+          <span className="text-strike-right font-medium">Red</span>
+        </p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-8 w-full max-w-5xl lg:max-w-7xl mx-auto flex-1">
         {sections.map(({ view, Icon, label, description }) => (
