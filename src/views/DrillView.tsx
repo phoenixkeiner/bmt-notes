@@ -142,7 +142,8 @@ export default function DrillView({ stance, onBack }: Props) {
   }
 
   const selectedIndex = belts.findIndex(b => b.name === selectedBelt);
-  const hasCombo = belts.slice(0, selectedIndex + 1).some(b => b.combos.length > 0);
+  const cumulativeCombos = belts.slice(0, selectedIndex + 1).flatMap(b => b.combos);
+  const hasCombo = cumulativeCombos.length > 0;
 
   return (
     <div className="min-h-screen bg-gray-950">
@@ -153,9 +154,9 @@ export default function DrillView({ stance, onBack }: Props) {
         >
           <FiArrowLeft /> Home
         </button>
-        <div className="flex flex-row items-baseline gap-6 mb-6 lg:mb-8">
-          <h2 className="text-white font-black text-2xl lg:text-4xl tracking-wide uppercase">Drill</h2>
-          <span className="text-xs lg:text-sm">
+        <div className="flex flex-row items-baseline gap-6 mb-8 lg:mb-10">
+          <h2 className="text-white font-black text-3xl sm:text-4xl lg:text-5xl tracking-wide uppercase">Drill</h2>
+          <span className="text-sm lg:text-base">
             <span className="text-strike-left font-medium">Left</span>
             <span className="text-gray-600 mx-1">/</span>
             <span className="text-strike-right font-medium">Right</span>
@@ -163,12 +164,21 @@ export default function DrillView({ stance, onBack }: Props) {
         </div>
         <BeltSelector belts={belts} selectedBelt={selectedBelt} onSelect={setSelectedBelt} />
         {hasCombo ? (
-          <button
-            onClick={startDrill}
-            className="mt-6 lg:mt-8 w-full sm:w-auto block sm:mx-auto bg-primary text-white font-semibold px-10 py-3 lg:px-14 lg:py-4 rounded-full text-base lg:text-xl hover:opacity-90 transition-opacity min-h-[44px]"
-          >
-            Start
-          </button>
+          <>
+            <ul className="mb-8 lg:mb-10 flex flex-col gap-3 lg:gap-4">
+              {cumulativeCombos.map(combo => (
+                <li key={combo.name} className="text-gray-300 text-base sm:text-lg lg:text-2xl">
+                  {combo.name}
+                </li>
+              ))}
+            </ul>
+            <button
+              onClick={startDrill}
+              className="w-full sm:w-auto block sm:mx-auto bg-primary text-white font-semibold px-10 py-3 lg:px-14 lg:py-5 rounded-full text-lg lg:text-2xl hover:opacity-90 transition-opacity min-h-[44px]"
+            >
+              Start
+            </button>
+          </>
         ) : (
           <p className="text-gray-700 text-sm lg:text-base italic mt-8">No combos for this belt yet.</p>
         )}
