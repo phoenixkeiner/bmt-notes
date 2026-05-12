@@ -19,7 +19,7 @@ export default function ComboDisplay({ combo, stance }: Props) {
         : side === 'right'
         ? 'text-strike-right'
         : 'text-gray-300';
-    if (strike === 'Switch Kick' || strike === 'Switch Body Kick' || strike === 'Switch Head Kick' || strike === 'Follow Through') {
+    if (strike === 'Switch Kick' || strike === 'Switch Body Kick' || strike === 'Switch Head Kick' || strike === 'Follow') {
       currentStance = currentStance === 'orthodox' ? 'southpaw' : 'orthodox';
     }
     return { strike, colorClass };
