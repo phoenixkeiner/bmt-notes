@@ -1,4 +1,4 @@
-// Maps strike names to left/right side per stance — used by ComboDisplay for color coding
+// Maps strike names to left/right side per stance, used by ComboDisplay for color coding
 type Side = 'left' | 'right';
 type StrikeMap = Record<string, Side>;
 
@@ -15,7 +15,8 @@ export const orthodoxMap: StrikeMap = {
   'Rear Low Kick': 'right',
   'Rear Body Kick': 'right',
   'Rear High Kick': 'right',
-  'Switch Kick': 'right',
+  'Switch Body Kick': 'left',
+  'Switch Head Kick': 'left',
   'Check': 'left',
   'Teep': 'left',
   'Lead Knee': 'left',
@@ -35,7 +36,8 @@ export const southpawMap: StrikeMap = {
   'Rear Low Kick': 'left',
   'Rear Body Kick': 'left',
   'Rear High Kick': 'left',
-  'Switch Kick': 'left',
+  'Switch Body Kick': 'right',
+  'Switch Head Kick': 'right',
   'Check': 'right',
   'Teep': 'right',
   'Lead Knee': 'right',

@@ -17,7 +17,8 @@ export const belts: Belt[] = [
     colorKey: 'belt-white',
     combos: [
       { name: 'Hands 1', combo: 'Jab, Rear Low Kick', seconds: 5 },
-      { name: 'Hands 2', combo: 'Jab, Cross, Lead Low Kick', seconds: 5 },
+      { name: 'Hands 2', combo: 'Jab, Cross, Switch Body Kick', seconds: 5 },
+      { name: 'Dutch 1', combo: 'Lead Hook, Rear Low Kick, Cross, Switch Body Kick, Follow Through, Cross, Lead Hook, Rear Low Kick, Lead Hook, Cross, Switch Head Kick', seconds: 10 },
     ],
   },
   {
