@@ -22,6 +22,27 @@ export default function DrillView({ stance, onBack }: Props) {
   const [quote, setQuote] = useState('');
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
+  useEffect(() => {
+    let wakeLock: WakeLockSentinel | null = null;
+
+    async function requestWakeLock() {
+      if ('wakeLock' in navigator) {
+        try { wakeLock = await navigator.wakeLock.request('screen'); } catch {}
+      }
+    }
+
+    function handleVisibilityChange() {
+      if (document.visibilityState === 'visible') requestWakeLock();
+    }
+
+    requestWakeLock();
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      wakeLock?.release();
+    };
+  }, []);
+
   function clearTimer() {
     if (intervalRef.current) {
       clearInterval(intervalRef.current);
@@ -45,15 +66,6 @@ export default function DrillView({ stance, onBack }: Props) {
     setPhase('setup');
   }
 
-  function advance() {
-    clearTimer();
-    setRevealed(false);
-    if (index + 1 >= deck.length) {
-      setPhase('setup');
-    } else {
-      setIndex(i => i + 1);
-    }
-  }
 
   useEffect(() => {
     if (phase !== 'countdown') return;
